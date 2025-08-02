@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="luxury">
   <head>
     <title><%= content_for(:title) || "Hotwire Forums" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,6 +23,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/navigation" %>
+    <%= render "shared/flash" %>
+    <div class="px-8 mt-4">
+      <%= yield %>
+    </div>
   </body>
 </html>
