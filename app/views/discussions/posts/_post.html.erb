@@ -1,0 +1,6 @@
+<div class="chat <%= post.user == post.discussion.user ? "chat-start" : "chat-end" %>>">
+  <%= render 'discussions/posts/header', post: post %>
+  <div class="chat-bubble">
+    <%= post.body %>
+  </div>
+</div>

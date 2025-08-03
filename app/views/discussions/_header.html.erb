@@ -1,5 +1,5 @@
-<%= turbo_frame_tag dom_id(discussion) do %>
-  <div class="flex items-center justify-between">
+<%= turbo_frame_tag dom_id(discussion), class: "w-full" do %>
+  <div class="flex items-center justify-between w-full">
     <div>
       <h1 class="text-xl"><%= discussion.name %></h1>
       <span class="fs-6">

@@ -68,3 +68,7 @@ end
 gem "tailwindcss-rails", "~> 4.3"
 
 gem "devise", "~> 4.9"
+
+gem "pry", "~> 0.15.2"
+
+gem "tailwindcss-ruby", "~> 4.1"

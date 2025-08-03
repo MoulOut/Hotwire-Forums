@@ -1,4 +1,4 @@
-<%= form_with model: discussion, data: { turbo: false } do |f| %>
+<%= form_with model: discussion do |f| %>
   <% if discussion.errors.any? %>
     <div class="alert alert-error">
       <h2><%= pluralize(discussion.errors.count, "error") %> prevented this discussion from being saved</h2>
@@ -25,6 +25,14 @@
     <%= f.label :closed, class: "label" %>
     <%= f.checkbox :closed, class: "checkbox", placeholder: "How do I...?" %>
   </div>
+
+  <% if discussion.new_record? %>
+    <%= f.fields_for :posts do |p| %>
+      <div class="m-3">
+        <%= p.rich_text_area :body, placeholder: "Kickoff the discussion", class: "textarea" %>
+      </div>
+    <% end %>
+  <% end %>
 
   <div class="mb-3">
     <%= f.submit class: 'btn btn-primary' %>

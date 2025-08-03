@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="coffee">
+<html data-theme="halloween">
   <head>
     <title><%= content_for(:title) || "Hotwire Forums" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,10 +22,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="m-4">
     <%= render "shared/navigation" %>
     <%= render "shared/flash" %>
-    <div class="px-8 mt-4">
+    <div class="flex flex-col justify-center items-center w-full gap-2 w-1/2 px-8 mt-4">
       <%= yield %>
     </div>
   </body>

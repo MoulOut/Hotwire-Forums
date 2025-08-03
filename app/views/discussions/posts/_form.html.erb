@@ -1,0 +1,27 @@
+<%= turbo_frame_tag "#{dom_id(post)}_form", target: "_top", class: "w-full" do %>
+  <%= form_with model: [post.discussion, post] do |f| %>
+    <% if post.errors.any? %>
+      <div class="alert alert-error">
+        <h2>
+          <%= pluralize(post.errors.count, 'error') %>
+          prohibited this post from being saved:
+        </h2>
+        <ul>
+          <% post.errors.each do |error| %>
+            <li>
+              <%= error.full_message %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="flex w-full gap-2">
+      <div class="flex-1">
+        <%= f.label :body, class: "label hidden" %>
+        <%= f.text_field :body, class: "input w-full", placeholder: "Add a comment", autofocus: true %>
+      </div>
+      <%= f.submit "Send", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>

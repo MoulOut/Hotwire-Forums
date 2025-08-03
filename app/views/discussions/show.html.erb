@@ -1,2 +1,10 @@
 <%= turbo_stream_from @discussion %>
 <%= render "header", discussion: @discussion %>
+
+<div id="posts" class="p-4 w-full">
+  <%= render partial: "discussions/posts/post", collection: @posts %>
+</div>
+
+<div id="<%= dom_id @new_post %>" class="w-full">
+  <%= render "discussions/posts/form", post: @new_post %>
+</div>

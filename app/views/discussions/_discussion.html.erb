@@ -1,5 +1,5 @@
 <li id="<%= dom_id(discussion) %>" class="list-row items-center">
-    <h2><%= link_to discussion.name, discussion %></h2>
+    <%= link_to discussion.name, discussion, class: "text-lg" %>
     <span>Pinned: <%= discussion.pinned %> | Closed:  <%= discussion.closed %></span>
   <div>
     <%= link_to "Edit", edit_discussion_path(discussion), class: "btn btn-primary btn-sm" %>

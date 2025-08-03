@@ -7,11 +7,13 @@ class DiscussionsController < ApplicationController
   end
 
   def show
-
+    @posts = @discussion.posts.order(updated_at: :asc)
+    @new_post = @discussion.posts.new
   end
 
   def new
     @discussion = Discussion.new
+    @discussion.posts.new
   end
 
   def create
@@ -41,13 +43,14 @@ class DiscussionsController < ApplicationController
   end
 
   def destroy
-    @discussion.destroy!
-    redirect_to discussions_path, alert: "Discussion was successfully destroyed."
+    if @discussion.destroy!
+      redirect_to discussions_path, alert: "Discussion was successfully destroyed."
+    end
   end
 
   private
   def discussion_params
-    params.require(:discussion).permit(:name, :closed, :pinned)
+    params.require(:discussion).permit(:name, :closed, :pinned, posts_attributes: :body)
   end
 
   def set_discussion

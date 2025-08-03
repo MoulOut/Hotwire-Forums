@@ -5,5 +5,5 @@
 @source "../../../app/views/**/*";
 
 @plugin "./daisyui.js" {
-    themes: light --default, dark --default, coffee, luxury;
+    themes: light --default, dark --default, coffee, halloween;
 }
