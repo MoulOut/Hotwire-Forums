@@ -1,12 +1,12 @@
-<div class="flex justify-between items-center">
+<%= turbo_stream_from "discussions" %>
+
+<div class="flex mb-2 justify-between items-center">
   <h1 class="text-xl">Discussions</h1>
   <%= link_to "New Discussions", new_discussion_path, class: "btn btn-neutral" %>
 </div>
 
-<div class="row mt-4">
-  <div class="col">
-    <div id="discussions">
-      <%= render @discussions %>
-    </div>
-  </div>
+<div>
+  <ul id="discussions" class="list gap-4">
+    <%= render @discussions %>
+  </ul>
 </div>

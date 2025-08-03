@@ -1,8 +1,8 @@
-<div id="<%= dom_id(discussion) %>" class="mb-2">
-  <h2><%= discussion.name %></h2>
-  <span>Pinned: <%= discussion.pinned %> | Closed:  <%= discussion.closed %></span>
+<li id="<%= dom_id(discussion) %>" class="list-row items-center">
+    <h2><%= link_to discussion.name, discussion %></h2>
+    <span>Pinned: <%= discussion.pinned %> | Closed:  <%= discussion.closed %></span>
   <div>
     <%= link_to "Edit", edit_discussion_path(discussion), class: "btn btn-primary btn-sm" %>
     <%= link_to "Delete", discussion, data: { turbo_method: :delete, confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
   </div>
-</div>
+</li>
