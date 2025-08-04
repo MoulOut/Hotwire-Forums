@@ -16,19 +16,26 @@
     <%= f.text_field :name, class: "input", placeholder: "How do I...?" %>
   </div>
 
+  <div class="mb-3 flex flex-col gap-2">
+    <%= f.label :category, class: "label" %>
+    <%= f.collection_select :category_id, Category.sorted, :id, :name,
+      { include_blank: "Pick a category" }, { class: "select"} %>
+  </div>
+
   <div class="mb-3 flex gap-2">
     <%= f.label :pinned, class: "label" %>
-    <%= f.checkbox :pinned, class: "checkbox", placeholder: "How do I...?" %>
+    <%= f.checkbox :pinned, class: "checkbox" %>
   </div>
 
   <div class="mb-3 flex gap-2">
     <%= f.label :closed, class: "label" %>
-    <%= f.checkbox :closed, class: "checkbox", placeholder: "How do I...?" %>
+    <%= f.checkbox :closed, class: "checkbox" %>
   </div>
 
   <% if discussion.new_record? %>
     <%= f.fields_for :posts do |p| %>
-      <div class="m-3">
+      <div class="mb-3">
+        <%= p.label :body, "Start discussion" %>
         <%= p.rich_text_area :body, placeholder: "Kickoff the discussion", class: "textarea" %>
       </div>
     <% end %>
