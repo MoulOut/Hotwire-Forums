@@ -1,7 +1,7 @@
 <%= turbo_stream_from @discussion %>
 <%= render "header", discussion: @discussion %>
 
-<div id="posts" class="p-4 w-full">
+<div id="posts" class="p-4 w-full h-[75vh] overflow-y-scroll">
   <%= render partial: "discussions/posts/post", collection: @posts %>
 </div>
 

@@ -4,10 +4,21 @@
     <h1 class="font-bold text-4xl">Discussions</h1>
     <%= link_to "New Discussions", new_discussion_path, class: "btn btn-neutral" %>
   </div>
-
-  <div>
-    <ul id="discussions" class="list gap-4">
-      <%= render @discussions %>
-    </ul>
+  <%= turbo_stream_from "categories" %>
+  <div class="flex w-full gap-2">
+    <div class="w-1/5 categories">
+      <h5 class="text-lg mb-2">Categories</h5>
+      <%= render partial: "categories/category", collection: Category.sorted %>
+    </div>
+    <div class="w-4/5">
+      <ul id="discussions" class="list gap-4">
+        <% if @discussions.any? %>
+          <%= render @discussions %>
+        <% else %>
+          No discussions yet
+        <% end %>
+      </ul>
+    </div>
   </div>
+
 </section>

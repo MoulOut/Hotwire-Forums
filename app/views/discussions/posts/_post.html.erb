@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(post) do %>
-  <div class="chat <%= post.user == post.discussion.user ? 'chat-start' : 'chat-end' %>">
+  <div class="chat <%= post.user == Current.user ? 'chat-end' : 'chat-start' %>">
     <%= render "discussions/posts/header", post: %>
 
     <div class="chat-bubble">
