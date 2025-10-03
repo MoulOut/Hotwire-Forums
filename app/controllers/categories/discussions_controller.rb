@@ -3,7 +3,7 @@ module Categories
     before_action :authenticate_user!
     before_action :set_category
     def index
-      @discussions = @category.discussions.order(updated_at: :desc)
+      @discussions = @category.discussions.pinned_first
       render "discussions/index"
     end
 
