@@ -1,6 +1,6 @@
 <div id="<%= dom_id category %>" class="flex items-center w-full justify-between">
   <div class="justify-between w-full flex items-center">
-    <strong class="block font-medium mb-1"><%= category.name %></strong>
+    <strong class="block font-medium mb-1"><%= link_to category.name, category_discussions_path(category) %></strong>
     <strong class="badge badge-neutral"> <%= category.discussions_count %></strong>
   </div>
 </div>

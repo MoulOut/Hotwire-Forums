@@ -1,4 +1,8 @@
-<%= turbo_stream_from "discussions" %>
+<% if @category.present? %>
+  <%= turbo_stream_from @category %>
+<% else %>
+  <%= turbo_stream_from "discussions" %>
+<% end %>
 <section class="discussions w-full">
   <div class="flex mb-2 justify-between items-center w-full">
     <h1 class="font-bold text-4xl">Discussions</h1>
@@ -11,14 +15,16 @@
       <%= render partial: "categories/category", collection: Category.sorted %>
     </div>
     <div class="w-4/5">
+      <% if @category %>
+        <h4 class="text-xl">Viewing discussions in <%= @category.name %></h4>
+      <% end %>
       <ul id="discussions" class="list gap-4">
         <% if @discussions.any? %>
-          <%= render @discussions %>
+          <%= render partial: "discussions/discussion", collection: @discussions %>
         <% else %>
           No discussions yet
         <% end %>
       </ul>
     </div>
   </div>
-
 </section>

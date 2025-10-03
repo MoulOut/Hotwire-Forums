@@ -6,4 +6,8 @@ class Category < ApplicationRecord
   after_destroy_commit -> { broadcast_remove_to "categories" }
 
   scope :sorted, -> { order(name: :asc) }
+
+  def to_param
+    "#{id}-#{name.downcase.to_s[0...100]}".parameterize
+  end
 end
